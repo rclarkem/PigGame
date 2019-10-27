@@ -1,7 +1,7 @@
 # README
 
 # Personal Project: Pig Game Dice Roller
-#### Project completed as part Jonas Schmedtmann's The Complete Javascript Course
+#### Project completed as part of Jonas Schmedtmann's The Complete Javascript Course on Udemy
 
 
 

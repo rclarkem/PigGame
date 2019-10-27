@@ -18,6 +18,18 @@ document.getElementById('score-1').textContent = '0';
 document.getElementById('current-0').textContent = '0';
 document.getElementById('current-1').textContent = '0';
 
+function nextPlayer(){
+  document.querySelector('.dice').style.display = 'none';
+  activePlayer === 0 ? activePlayer = 1 : activePlayer = 0
+
+  roundScore = 0;
+  document.getElementById('current-0').textContent = '0';
+  document.getElementById('current-1').textContent = '0';
+
+
+  document.querySelector('.player-0-panel').classList.toggle('active');
+  document.querySelector('.player-1-panel').classList.toggle('active');
+}
 
 
 //Dice Roll Button
@@ -32,17 +44,27 @@ document.querySelector('.btn-roll').addEventListener('click', function(){
       roundScore += dice
       document.querySelector('#current-' + activePlayer).textContent = roundScore;
   } else {
-    document.querySelector('.dice').style.display = 'none';
-    // next player
-    activePlayer === 0 ? activePlayer = 1 : activePlayer = 0
-
-    roundScore = 0;
-    document.getElementById('current-0').textContent = '0';
-    document.getElementById('current-1').textContent = '0';
-
-
-    document.querySelector('.player-0-panel').classList.toggle('active');
-    document.querySelector('.player-1-panel').classList.toggle('active');
+      nextPlayer()
   }
+
+});
+
+document.querySelector('.btn-hold').addEventListener('click', function(){
+
+  let currentPlayer = scores[activePlayer] += roundScore;
+  document.getElementById(`score-${activePlayer}`).textContent = currentPlayer;
+  if(currentPlayer >= 20){
+    document.querySelector('#name-' + activePlayer).textContent = 'Winner!';
+    document.querySelector('.dice').style.display = 'none';
+    document.querySelector(`.player-${activePlayer}-panel`).classList.add('winner');
+  } else {
+      nextPlayer()
+  }
+
+
+  // if(currentPlayer === 100)
+  //if they hit hold, then it switches to other player
+  // score gets added to global score
+  //check if player won game
 
 });

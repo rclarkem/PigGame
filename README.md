@@ -2,6 +2,7 @@
 
 # Personal Project: Pig Dice Roller Game
 #### Project completed as part of Jonas Schmedtmann's The Complete Javascript Course on Udemy
+#### CSS/HTML design by Jonas Schmedtmann
 
 
 
